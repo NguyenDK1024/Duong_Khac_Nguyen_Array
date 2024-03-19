@@ -63,8 +63,8 @@ namespace Duong_Khac_Nguyen_Array
                 if (i == A.Length - 2 && count == 0) { break; }
             }
             for (int i = 0; i < A.Length; i++) { Console.WriteLine(A[i]); }
-
-                //////////////////////////////////
+            ////////////////////////////////
+            ////////////////////////////////
                 Console.ReadKey();
         }
     }

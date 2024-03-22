@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace Duong_Khac_Nguyen_Array
 {
@@ -36,21 +37,46 @@ namespace Duong_Khac_Nguyen_Array
         }
         static void Main(string[] args)
         {
-            int s = 0;
-            int Max = 0;
-
-            Console.Write("Nhap vao so luong phan tu n = ");
-            int n = int.Parse(Console.ReadLine());
-            int[] A = new int[n];
-
-            for (int i = 0; i < A.Length; i++)
+            try
             {
-                Console.Write("Nhap gia tri cho phan tu A[{0}] = ", i);
-                A[i] = int.Parse(Console.ReadLine());
+                Console.Write("Nhap vao so a = ");
+                int a = int.Parse(Console.ReadLine());
+
+                Console.Write("Nhap vao so b = ");
+                int b = int.Parse(Console.ReadLine());
+                int c = a / b;
+                Console.WriteLine(c);
+            }
+            catch(FormatException fe)
+            {
+                Console.WriteLine("Khong dung dinh dang nhap vao!: {0}", fe.Message);
+            }
+            catch (DivideByZeroException de)
+            {
+                Console.WriteLine("Khong duoc chia cho 0 ({0})", de.ToString());
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("Loi !", ex.ToString());
             }
 
+            Console.WriteLine("Xu li cac lenh tiep theo");
+            //
+            //int s = 0;
+            //int Max = 0;
 
-            //// Bài 1
+            //Console.Write("Nhap vao so luong phan tu n = ");
+            //int n = int.Parse(Console.ReadLine());
+            //int[] A = new int[n];
+
+            //for (int i = 0; i < A.Length; i++)
+            //{
+            //    Console.Write("Nhap gia tri cho phan tu A[{0}] = ", i);
+            //    A[i] = int.Parse(Console.ReadLine());
+            //}
+
+
+            ////// Bài 1
             //for (int i = 0; i < A.Length; i++)
             //{
             //    Console.Write(A[i] + "    ");
@@ -90,7 +116,7 @@ namespace Duong_Khac_Nguyen_Array
 
             //Bài 5
 
-            //// dem so phan tu chan va le
+            // dem so phan tu chan va le
             //int chanCount = 0;
             //int leCount = 0;
 
@@ -183,7 +209,40 @@ namespace Duong_Khac_Nguyen_Array
             //{
             //    Console.WriteLine("Gia tri lon thu hai trong mang la: " + max2);
             //}
+            //
 
+
+            //LinQ
+
+            //var sochan = A.Where(x => x %2 == 0).ToArray();
+            //var sole = A.Where(x=> x %2 != 0).ToArray();
+
+            ////In phan tu chan
+            //Console.WriteLine("mang so chan");
+            //foreach( var  item in sochan)
+            //{ 
+            //    Console.WriteLine(item + "\t");  
+            //}
+
+            ////In phan tu le
+            //Console.WriteLine("mang so le");
+            //foreach (var item in sole)
+            //{
+            //    Console.WriteLine(item + "\t");
+            //}
+
+            // In ra so phan tu duy nhat
+            //var unique = A.Distinct();
+            //Console.WriteLine("cac phan tu duy nhat la");
+            //foreach (int i in unique) Console.Write(i+"\t");
+
+            // In ra so lan trung lap
+
+            //var dup = A.GroupBy(x => x).Select(x=>new { Value = x.Key, Count = x.Count() });
+            //foreach(var i in dup)
+            //{
+            //    Console.WriteLine("Gia tri {0} lap lai {1} lan ", i.Value, i.Count);
+            //}
 
             Console.ReadKey();
         }
